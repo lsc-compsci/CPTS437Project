@@ -3,12 +3,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Prediction Result</title>
+    <title>Scan Result</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Styling the container */
+        .container {
+            background-color: white;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Header and title styling */
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* Styling the displayed image */
+        img {
+            margin: 20px auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            max-width: 80%;
+            height: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Link button styling */
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for the button */
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Foot styling */
+        footer p {
+            margin: 5px;
+            line-height: 1.5;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Prediction: {{ prediction }}</h1>
-    <img src="{{ url_for('static', filename='uploads/' + img_path) }}" alt="Uploaded Image" width="300">
-    <br>
-    <a href="{{ url_for('upload_predict') }}">Predict Another Image</a>
+    <h1>Classification: {{ prediction }}</h1>
+    <div class = "container">
+            <img src="{{ url_for('static', filename='uploads/' + img_path) }}" alt="Uploaded Image" width="300">
+            <br>
+            <a href="{{ url_for('upload_predict') }}">Scan Again</a>
+    </div>
+    <footer>
+        <br><p style="font-size: 12px;">2024 Basic Image Recognition.
+        <br>All Rights Reserved.
+        <br>Owen D. | Isaiah D. | Chhi L.</p>
+    </footer>
 </body>
 </html>

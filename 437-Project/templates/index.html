@@ -3,13 +3,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cat vs Dog Classifier</title>
+    <title>Image Classifier</title>
+    <style>
+        /* Add styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Styling the container */
+        .container {
+            background-color: white;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Styling the title */
+        h1 {
+            color: #333;
+        }
+
+        /* Styling the file input */
+        input[type="file"] {
+            margin: 10px 0;
+            padding: 5px;
+        }
+
+        /* Styling the submit button */
+        input[type="submit"] {
+            background-color: #007BFF; /* Light Blue before interaction */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Add hover effect for the submit button */
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Dark Blue after interaction */
+        }
+
+        /* Add some space */
+        form {
+            margin-top: 20px;
+        }
+        
+        /* Foot styling */
+        footer p {
+            margin: 5px;
+            line-height: 1.5;
+        }
+
+        
+    </style>
 </head>
 <body>
-    <h1>Upload an Image</h1>
-    <form method="POST" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" required>
-        <input type="submit" value="Predict">
-    </form>
+    <div class="container">
+        <h1>Upload an Image</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <br>
+            <input type="submit" value="Scan Image">
+        </form>
+    </div>
+
+    <footer>
+        <br><p style="font-size: 12px;">2024 Basic Image Recognition.
+        <br>All Rights Reserved.
+        <br>Owen D. | Isaiah D. | Chhi L.</p>
+    </footer>
 </body>
 </html>
