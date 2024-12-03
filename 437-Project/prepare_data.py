@@ -1,6 +1,7 @@
 import os
 import shutil
 import random
+from PIL import Image
 
 # Paths
 original_dataset_dir_cats = 'all_data/Cat'   # Path to original cat images
@@ -65,5 +66,22 @@ split_and_copy_files(
     validation_dir=validation_dogs_dir,
     split_size=0.8
 )
+
+def check_images(directory):
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            file_path = os.path.join(root, file)
+            try:
+                img = Image.open(file_path)
+                img.verify()  # Verify that it is, in fact an image
+            except (IOError, SyntaxError) as e:
+                print(f"Bad file: {file_path}")
+                os.remove(file_path)  # Remove corrupted file
+
+# Check training and validation directories
+check_images('data/train/cats')
+check_images('data/train/dogs')
+check_images('data/validation/cats')
+check_images('data/validation/dogs')
 
 print('Data preparation completed.')

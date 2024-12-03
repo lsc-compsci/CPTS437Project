@@ -125,4 +125,4 @@ plt.tight_layout()
 plt.show()
 
 # Save the trained model
-model.save('model/cat_dog_classifier.keras', save_format='tf')
+model.save('model/cat_dog_classifier.keras')
