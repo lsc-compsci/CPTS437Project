@@ -9,6 +9,7 @@ Features
 - Streamlined Training: Includes EarlyStopping and dynamic learning rate adjustment for efficiency.
   
 Contributors: Owen Downs, Isaiah Doan, Chhi Ly
+
 All rights reserved.
 
 Doc: https://docs.google.com/document/d/1ILK8-M_i4C0ufWhDPROFcpcrN2Z7k_hXrKLDtTgbMN0/edit?usp=sharing
