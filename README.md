@@ -8,7 +8,7 @@ Features
 - Data Augmentation: Enhances robustness through image transformations.
 - Streamlined Training: Includes EarlyStopping and dynamic learning rate adjustment for efficiency.
   
-Contributors: Owen Downs, Isaiah Doan, Chhi Ly
+Contributors: Isaiah Doan, Owen Downs, Chhi Ly
 
 All rights reserved.
 
