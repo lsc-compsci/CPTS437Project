@@ -8,19 +8,29 @@ from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
 
-# Load the trained model
-model = load_model('model/cat_dog_classifier.keras')
+# Load the trained multi-class model (cats, dogs, birds)
+model = load_model('model/cat_dog_bird_classifier.keras')
 
 UPLOAD_FOLDER = 'static/uploads/'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+# Define the classes in the same order as training labels
+class_names = ['Bird', 'Cat', 'Dog']
+
 def predict_image(img_path):
-    img = load_img(img_path, target_size=(150, 150))
+    # Adjust target_size if your model expects a different image dimension
+    img = load_img(img_path, target_size=(224, 224))
     img_array = img_to_array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
+    
+    # Model outputs probabilities for each class
     prediction = model.predict(img_array)
-    return 'Dog' if prediction[0][0] > 0.5 else 'Cat'
+    # e.g., prediction might look like [[0.2, 0.5, 0.3]]
+    
+    # Get the class with the highest probability
+    class_idx = np.argmax(prediction, axis=1)[0]
+    return class_names[class_idx]
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_predict():
